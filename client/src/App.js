@@ -6,6 +6,7 @@ function App() {
   const [adData, setAdData] = useState({
     title: "",
     make: "",
+    year: "",
     transmission: "",
     cylinders: "",
     price: "",
@@ -55,6 +56,22 @@ function App() {
           placeholder='ad-title'
         />
         <input
+          name='year'
+          variant='outlined'
+          label='year'
+          value={setAdData.year}
+          onChange={(e) => setAdData({ ...adData, year: e.target.value })}
+          placeholder='ad-year'
+        />
+        <input
+          name='make'
+          variant='outlined'
+          label='make'
+          value={setAdData.make}
+          onChange={(e) => setAdData({ ...adData, make: e.target.value })}
+          placeholder='ad-make'
+        />
+        <input
           name='price'
           variant='outlined'
           label='price'
@@ -67,10 +84,10 @@ function App() {
       {ads.map((ad) => {
         return (
           <div className='ad' key={ad._id}>
-            <p>{ad.title}</p>
-            <p>{ad.make}</p>
-            <p>{ad.year}</p>
-            <p>${ad.price}</p>
+            <strong>{ad.title}</strong>
+            <p>make: {ad.make}</p>
+            <p>year: {ad.year}</p>
+            <p>price: ${ad.price}</p>
           </div>
         );
       })}
