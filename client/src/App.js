@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [ads, getAds] = useState([]);
@@ -54,6 +55,7 @@ function App() {
           value={setAdData.title}
           onChange={(e) => setAdData({ ...adData, title: e.target.value })}
           placeholder='ad-title'
+          required
         />
         <input
           name='year'
@@ -62,6 +64,7 @@ function App() {
           value={setAdData.year}
           onChange={(e) => setAdData({ ...adData, year: e.target.value })}
           placeholder='ad-year'
+          required
         />
         <input
           name='make'
@@ -70,6 +73,7 @@ function App() {
           value={setAdData.make}
           onChange={(e) => setAdData({ ...adData, make: e.target.value })}
           placeholder='ad-make'
+          required
         />
         <input
           name='price'
@@ -78,6 +82,7 @@ function App() {
           value={setAdData.price}
           onChange={(e) => setAdData({ ...adData, price: e.target.value })}
           placeholder='ad-price'
+          required
         />
         <button type='submit'>Submit</button>
       </form>
@@ -88,6 +93,8 @@ function App() {
             <p>make: {ad.make}</p>
             <p>year: {ad.year}</p>
             <p>price: ${ad.price}</p>
+            <button>Inquire</button>
+            <button>Buy Now</button>
           </div>
         );
       })}
