@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./Ads.css";
 
 function Ads() {
   const [ads, getAds] = useState([]);
