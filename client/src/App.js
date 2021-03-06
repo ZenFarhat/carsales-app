@@ -86,18 +86,20 @@ function App() {
         />
         <button type='submit'>Submit</button>
       </form>
-      {ads.map((ad) => {
-        return (
-          <div className='ad' key={ad._id}>
-            <strong>{ad.title}</strong>
-            <p>make: {ad.make}</p>
-            <p>year: {ad.year}</p>
-            <p>price: ${ad.price}</p>
-            <button>Inquire</button>
-            <button>Buy Now</button>
-          </div>
-        );
-      })}
+      <div className='ad-container'>
+        {ads.map((ad) => {
+          return (
+            <div className='ad' key={ad._id}>
+              <strong>{ad.title}</strong>
+              <p>make: {ad.make}</p>
+              <p>year: {ad.year}</p>
+              <p>price: ${ad.price}</p>
+              <button>Inquire</button>
+              <button>Buy Now</button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
