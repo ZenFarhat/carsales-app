@@ -33,12 +33,12 @@ function Ads() {
       {ads.map((ad) => {
         return (
           <div className='ad' key={ad._id}>
+            <p>{ads.length}</p>
             <strong>{ad.title}</strong>
             <p>make: {ad.make}</p>
             <p>year: {ad.year}</p>
             <p>price: ${ad.price}</p>
             <button onClick={() => deleteAd(ad._id)}>Delete Post</button>
-            <button>Buy Now</button>
           </div>
         );
       })}
