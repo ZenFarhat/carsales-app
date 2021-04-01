@@ -4,7 +4,8 @@ import "./Ads.css";
 
 function Ads() {
   const [ads, getAds] = useState([]);
-  const url = "http://localhost:5000/ads/";
+  const [id, getId] = useState("");
+  const url = "http://localhost:5000/ads";
 
   useEffect(() => {
     getAllAds();
@@ -21,7 +22,13 @@ function Ads() {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
-  return (
+  const deleteAd = (id) => {
+    axios.delete(`${url}/${id}`).then(getAllAds);
+  };
+
+  return !ads.length ? (
+    <h1 className='noListings'>There are currently no listings</h1>
+  ) : (
     <div className='ad-container'>
       {ads.map((ad) => {
         return (
@@ -30,7 +37,7 @@ function Ads() {
             <p>make: {ad.make}</p>
             <p>year: {ad.year}</p>
             <p>price: ${ad.price}</p>
-            <button>Inquire</button>
+            <button onClick={() => deleteAd(ad._id)}>Delete Post</button>
             <button>Buy Now</button>
           </div>
         );
